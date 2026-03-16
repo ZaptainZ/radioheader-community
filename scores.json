@@ -1,1 +1,14 @@
-{}
+{
+  "sw-backend-nginx-trailing-slash": {
+    "score": 1.0,
+    "raw_score": 1,
+    "usage": 1,
+    "positive": 1,
+    "negative": 0,
+    "first_vote": "",
+    "age_days": 0,
+    "decay": 1.0,
+    "verified": false,
+    "archive": false
+  }
+}
