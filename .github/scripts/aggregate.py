@@ -64,14 +64,17 @@ def load_votes(votes_dir: Path) -> dict:
                 else:
                     entry["negative"] += 1
 
-                # Track first vote date
+                # Track first vote date (supports ISO 8601 and date-only formats)
                 if ts:
-                    try:
-                        vote_date = datetime.strptime(ts, "%Y-%m-%d").date()
-                        if entry["first_vote"] is None or vote_date < entry["first_vote"]:
-                            entry["first_vote"] = vote_date
-                    except ValueError:
-                        pass
+                    vote_date = None
+                    for fmt in ("%Y-%m-%dT%H:%M:%SZ", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d"):
+                        try:
+                            vote_date = datetime.strptime(ts, fmt).date()
+                            break
+                        except ValueError:
+                            continue
+                    if vote_date and (entry["first_vote"] is None or vote_date < entry["first_vote"]):
+                        entry["first_vote"] = vote_date
 
     return entries
 
