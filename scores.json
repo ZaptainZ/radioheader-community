@@ -1,13 +1,13 @@
 {
   "sw-backend-nginx-trailing-slash": {
-    "score": 0.33,
+    "score": 0.32,
     "raw_score": 1,
     "usage": 1,
     "positive": 1,
     "negative": 0,
     "first_vote": "2026-03-12",
-    "age_days": 200,
-    "decay": 0.3292,
+    "age_days": 207,
+    "decay": 0.3166,
     "verified": false,
     "archive": false
   }
